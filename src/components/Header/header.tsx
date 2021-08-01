@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './header.scss';
 
-const Header = () => {
+const Header: FC = () => {
   return (
     <nav className="navbar fixed-top navbar-light bg-light">
       <div className="container-fluid">
