@@ -4,5 +4,4 @@ export interface ICrypto {
 
 export interface IStore {
   main: ICrypto;
-  // users: IUsersState;
 }
