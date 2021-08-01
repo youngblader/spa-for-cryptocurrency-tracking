@@ -1,13 +1,27 @@
-.col {
+.row {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    padding-top: .75rem;
-    background-color: rgba(39,41,43,0.03);
-    border: 1px solid rgba(39,41,43,0.1);
-}
+    margin: 5px;
 
-.card {
-    border: none;
-    border-radius: none;
+    .col {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: .75rem;
+        background-color: rgba(39,41,43,0.03);
+        border: 1px solid rgba(39,41,43,0.1);
+    }
+
+    .col-content {
+        display: flex;
+    }
+    
+    .card {
+        border: none;
+        border-radius: none;
+    }
+
+    .btn {
+        width: 200px;
+    }
 }

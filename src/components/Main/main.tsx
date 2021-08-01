@@ -20,10 +20,15 @@ const Main: FC = () => {
 
   return (
     <div className="container">
-      {crypto.map((item: { id: string; name: string }) => {
+      {crypto.map((item: { id: string; name: string; marketCapUsd: string; changePercent24Hr: string; priceUsd: string; }) => {
         return (
           <div key={item.id} >
-            <Card name={item.name} />
+            <Card 
+              name={item.name} 
+              marketCapUsd={item.marketCapUsd} 
+              changePercent={item.changePercent24Hr}
+              price={item.priceUsd}
+            />
           </div>
         )
       })}
