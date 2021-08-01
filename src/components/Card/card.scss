@@ -1,0 +1,13 @@
+.col {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: .75rem;
+    background-color: rgba(39,41,43,0.03);
+    border: 1px solid rgba(39,41,43,0.1);
+}
+
+.card {
+    border: none;
+    border-radius: none;
+}
