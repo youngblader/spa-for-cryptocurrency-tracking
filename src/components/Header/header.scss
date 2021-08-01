@@ -1,0 +1,15 @@
+
+.container-fluid__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .container-fluid__content-title {
+        font-size: 14px;
+    }
+
+    .container-fluid__content-subtitle {
+        font-size: 12px;
+    }
+}
+    
