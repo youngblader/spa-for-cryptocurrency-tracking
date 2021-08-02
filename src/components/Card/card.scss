@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     margin: 5px;
+    cursor: pointer;
 
     .col {
         display: flex;
@@ -15,6 +16,10 @@
     .col-content {
         display: flex;
     }
+
+    .col-text {
+        cursor: text;
+    }
     
     .card {
         border: none;
@@ -24,4 +29,9 @@
     .btn {
         width: 200px;
     }
+}
+
+.row:hover {
+    background-color: #EBF4FB;
+    transition: .3s;
 }
