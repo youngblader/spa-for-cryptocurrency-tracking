@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { Header, SelectedCryptoCard } from '../../components';
+import { Redirect } from 'react-router-dom';
+import { Header, SelectedCryptoCard, ModalInputCrypto } from '../../components';
 import { IStoreCard } from '../../types/interfaces';
 
 import './currentCryptoPage.scss';
@@ -31,9 +32,11 @@ const CurrentCryptoPage: FC = () => {
                 volume={item.volumeUsd24Hr}
                 vwap={item.vwap24Hr}
               />
+              <ModalInputCrypto item={item} name={item.name} symbol={item.symbol}/>
             </div>
           )
         })}
+        {selectedCrypto.length === 0 ? <Redirect to="/"/> : null}
       </div>
     </div>
   )
