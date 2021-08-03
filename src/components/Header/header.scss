@@ -11,7 +11,19 @@
     }
 
     .container-fluid__content-subtitle {
+        margin: none;
         font-size: 12px;
+        background-color: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: .5s;
     }
+
+    .container-fluid__content-subtitle:hover {
+        color: #0d6efd;
+        transition: .5s;
+        cursor: pointer;
+    }    
 }
     

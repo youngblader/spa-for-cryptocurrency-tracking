@@ -1,0 +1,23 @@
+.w-100 {
+    padding: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: unset;
+}
+
+.card-quantity {
+    display: flex;
+    align-items: baseline;
+}
+
+.card-text-symbol {
+    margin-left: 5px;
+    font-size: 13px;
+    color: #98a1b2;
+}
