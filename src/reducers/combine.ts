@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import { cardReducer, mainReducer } from '../reducers';
+import { cardReducer, mainReducer, currentCryptoCardReducer } from '../reducers';
 
 const rootReducer = combineReducers({
   main: mainReducer,
-  card: cardReducer
+  card: cardReducer,
+  current: currentCryptoCardReducer,
 });
 
 export default rootReducer;

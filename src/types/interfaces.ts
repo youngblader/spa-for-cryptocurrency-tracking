@@ -13,3 +13,11 @@ export interface ISelectedCrypto {
 export interface IStoreCard {
   card: ISelectedCrypto;
 }
+
+export interface ICurrentCrypto {
+  wallet: [];
+}
+
+export interface IStoreWallet {
+  current: ICurrentCrypto;
+}

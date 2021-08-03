@@ -1,4 +1,8 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { IStoreWallet } from '../../types/interfaces';
+import { actionTypes } from '../../types/types';
+
 import './selectedCryptoCard.scss';
 
 type TSelectedCryptoCardProps = {
@@ -18,10 +22,14 @@ type TSelectedCryptoCardProps = {
 
 const SelectedCryptoCard: FC<TSelectedCryptoCardProps> = (props) => {
  
-  const [wallet, setWallet] = useState([] as any);
+  const dispatch = useDispatch();
+  const wallet = useSelector((state: IStoreWallet) => state.current.wallet);
 
   const addCryptoCurrency = (item: []) => {
-    setWallet([...wallet, item]);
+    dispatch({
+      type: actionTypes.ADD_CRYPTO_TO_WALLET,
+      payload: [...wallet, item]
+    });
   }
 
   console.log(wallet);
