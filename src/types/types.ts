@@ -4,6 +4,7 @@ export enum actionTypes {
   GET_CRYPTO = 'GET_CRYPTO',
   SELECTED_CRYPTO = 'SELECTED_CRYPTO',
   ADD_CRYPTO_TO_WALLET = 'ADD_CRYPTO_TO_WALLET',
+  DELETE_CRYPTO = 'DELETE_CRYPTO'
 }
 
 export type TGetCryptoAction = {
@@ -21,8 +22,14 @@ export type TAddCrypto = {
   payload: [],
 }
 
-export type TCryptoActions = TGetCryptoAction | TSelectedCrypto | TAddCrypto;
+export type TDeleteCrypto = {
+  type: actionTypes.DELETE_CRYPTO,
+  payload: [],
+}
+
+export type TCryptoActions = TGetCryptoAction | TSelectedCrypto | TAddCrypto | TDeleteCrypto;
 
 export type TGetCryptos = (crypto: ICrypto) => TGetCryptoAction;
 export type TSelectedCryptoItem = (selectedCrypto: ISelectedCrypto) => TSelectedCrypto;
 export type TCurrentCryptoCurrency = (wallet: ICurrentCrypto) => ICurrentCrypto;
+export type TDeleteWalletCurrency = (wallet: ICurrentCrypto) => ICurrentCrypto;
