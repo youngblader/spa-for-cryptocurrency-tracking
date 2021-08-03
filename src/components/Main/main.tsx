@@ -1,8 +1,8 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCrypto } from '../../actions/mainActions';
-import { Card } from '../../components';
+import { Card, Pagination, ModalWindowWallet } from '../../components';
 import { IStore } from '../../types/interfaces';
 
 import './main.scss';
@@ -10,15 +10,26 @@ import './main.scss';
 const Main: FC = () => {
 
   const dispatch = useDispatch();
+
   const crypto = useSelector((state: IStore) => state.main.crypto);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const amountCrypto: number = 10;
+
+  const lastCryptoIndex: number = currentPage * amountCrypto;
+  const firstCryptoIndex: number = lastCryptoIndex - amountCrypto;
+  const currentCryptoPage: any = crypto.slice(firstCryptoIndex, lastCryptoIndex);
 
   useEffect(() => {
     getCrypto(dispatch);
   }, [dispatch]);
 
+  const onTogglePagination = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  }
+
   return (
     <div className="container">
-      {crypto.map((item: { id: string; name: string; marketCapUsd: string; changePercent24Hr: string; priceUsd: string; })  => {
+      {currentCryptoPage.map((item: { id: string; name: string; marketCapUsd: string; changePercent24Hr: string; priceUsd: string; })  => {
         return (
           <Link
             key={item.id}
@@ -36,6 +47,8 @@ const Main: FC = () => {
           </Link>
         )
       })}
+      <Pagination totalCryptoItems={crypto.length} amountCrypto={amountCrypto} pagination={onTogglePagination}/>
+      <ModalWindowWallet/>
     </div>
   )
 }
