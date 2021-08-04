@@ -1,4 +1,4 @@
-import { ICrypto, ICurrentCrypto, ISelectedCrypto } from "./interfaces";
+import { ICrypto, ICurrentCrypto, ISelectedCrypto, ItemsCrypto, ItemsWallet, } from "./interfaces";
 
 export enum actionTypes {
   GET_CRYPTO = 'GET_CRYPTO',
@@ -26,6 +26,9 @@ export type TDeleteCrypto = {
   type: actionTypes.DELETE_CRYPTO,
   payload: [],
 }
+
+export type TTopCryptos = ItemsCrypto;
+export type TSummaWallet = ItemsWallet;
 
 export type TCryptoActions = TGetCryptoAction | TSelectedCrypto | TAddCrypto | TDeleteCrypto;
 
