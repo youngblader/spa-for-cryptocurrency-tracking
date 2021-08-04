@@ -9,6 +9,7 @@ type TModalInputCryptoProps = {
   item: any,
   name: string,
   symbol: string,
+  price: string,
 }
 
 const ModalInputCrypto: FC<TModalInputCryptoProps> = (props) => {
@@ -24,7 +25,7 @@ const ModalInputCrypto: FC<TModalInputCryptoProps> = (props) => {
   const addCryptoCurrency = (item: []) => {
     dispatch({
       type: actionTypes.ADD_CRYPTO_TO_WALLET,
-      payload: [...wallet, {...item, quantity: quantityCrypto}]
+      payload: [...wallet, {...item, quantity: quantityCrypto, total: parseFloat(props.price) * parseFloat(quantityCrypto)}]
     });
     localStorage.setItem('cryptoCurrency', JSON.stringify([...wallet, item]));
   }

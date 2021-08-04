@@ -37,7 +37,7 @@ const Card: FC<TCryptoCardProps> = (props) => {
           <p className="col-text">MKT CAP {parseFloat(props.marketCapUsd).toFixed(3)}</p>
         </div>
         <div className="col">
-          <p className="col-text">LAST {parseFloat(props.price).toFixed(3)} usd</p>
+          <p className="col-text">LAST {parseFloat(props.price).toFixed(2)} usd</p>
         </div>
         <div className="col">
           <p className="col-text">CHP % {parseFloat(props.changePercent).toFixed(2)}</p>

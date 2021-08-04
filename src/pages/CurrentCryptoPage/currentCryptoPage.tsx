@@ -32,7 +32,7 @@ const CurrentCryptoPage: FC = () => {
                 volume={item.volumeUsd24Hr}
                 vwap={item.vwap24Hr}
               />
-              <ModalInputCrypto item={item} name={item.name} symbol={item.symbol}/>
+              <ModalInputCrypto item={item} name={item.name} symbol={item.symbol} price={item.priceUsd}/>
             </div>
           )
         })}

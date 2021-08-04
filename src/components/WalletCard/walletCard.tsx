@@ -37,7 +37,7 @@ const WalletCard: FC<TWalletCardProps> = (props) => {
         <span className="card-text">{props.quantity}</span>
         <span className="card-text-symbol">{props.symbol}</span>
       </div>
-      <span className="card-text">{parseFloat(props.price).toFixed(3)} USD</span>
+      <span className="card-text">{(parseFloat(props.quantity) * parseFloat(props.price)).toFixed(3)} USD</span>
       <div>
         <button type="button" className="btn-close" aria-label="Close" onClick={() => deleteCryptoCurrency(props.index)}></button>
       </div>
