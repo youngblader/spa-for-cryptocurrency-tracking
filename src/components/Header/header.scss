@@ -1,4 +1,3 @@
-
 .container-fluid__content {
     display: flex;
     flex-direction: column;
@@ -11,7 +10,7 @@
     }
 
     .container-fluid__content-subtitle {
-        margin: none;
+        margin-bottom: 0;
         font-size: 12px;
         background-color: none;
         border: none;
@@ -24,6 +23,31 @@
         color: #0d6efd;
         transition: .5s;
         cursor: pointer;
-    }    
+    }
+
+    .container-fluid_nav-items {
+        display: flex;
+        width: 200px;
+        background-color: red;
+        justify-content: space-between;
+    }
+}
+
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.nav-item__title {
+    margin: 0;
+}
+
+.nav-item__subtitle {
+    margin-left: 5px;
+    font-size: 13px;
+    color: #98a1b2;
 }
     
