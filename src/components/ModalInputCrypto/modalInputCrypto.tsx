@@ -58,7 +58,6 @@ const ModalInputCrypto: FC<TModalInputCryptoProps> = (props) => {
           </div>
         </div>
       </div>
-
     </>
   )
 }

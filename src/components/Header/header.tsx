@@ -22,15 +22,8 @@ const Header: FC = () => {
     if(wallet.length !== 0) {
       const b = wallet.map(item => item.total).reduce((prev, next) => prev + next);
       setWalletAmount(b);
-    }
-    // if(prevCount !== 0 && walletAmount !== 0) {
-    //   setWalletAmountPercent(((walletAmount - prevCount) / prevCount) * 100);
-    //   console.log(walletAmountPercent);
-    // }
-    
+    }  
   }, [wallet]);
-
-  // console.log('Now', walletAmount, 'before:', prevCount);
 
   function usePrevious<T>(value: T): T {
     const ref: any = useRef<T>();
@@ -38,7 +31,6 @@ const Header: FC = () => {
     useEffect(() => {
       ref.current = value;
       setWalletAmountPercent(((walletAmount - prevCount) / prevCount) * 100);
-      // console.log(walletAmountPercent);
     }, [value]);
     return ref.current;
   }
