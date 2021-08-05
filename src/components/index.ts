@@ -6,3 +6,4 @@ export * from './Pagination/pagination';
 export * from './ModalWindowWallet/modalWindowWallet';
 export * from './WalletCard/walletCard';
 export * from './ModalInputCrypto/modalInputCrypto';
+export * from './Bar/BarChart';
