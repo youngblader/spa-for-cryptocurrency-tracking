@@ -7,7 +7,8 @@ export interface IStore {
 }
 
 export interface ISelectedCrypto {
-  selectedCrypto: [];
+  selectedCrypto: [],
+  getGraphsItems: [],
 }
 
 export interface IStoreCard {
@@ -27,6 +28,8 @@ export interface ItemsCrypto {
   name: string,
   priceUsd: string,
   rank: 'rank',
+  date: string,
+  getGraphsItems: string | number;
 }
 
 export interface ItemsWallet {
@@ -35,4 +38,5 @@ export interface ItemsWallet {
   priceUsd: string,
   quantity: string,
   total: number,
+  reduce: number,
 }
