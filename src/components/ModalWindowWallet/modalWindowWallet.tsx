@@ -7,9 +7,7 @@ import { actionTypes } from '../../types/types';
 const ModalWindowWallet: FC = () => {
   
   const dispatch = useDispatch();
-
   const wallet = useSelector((state: IStoreWallet) => state.current.wallet);
-  console.log(wallet);
 
   useEffect(() => {
     const cryptoCurrency: any = localStorage.getItem('cryptoCurrency');

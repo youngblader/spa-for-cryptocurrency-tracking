@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import { useSelector } from 'react-redux';
-import { IStoreCard } from '../../types/interfaces';
+import React, { FC, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getGraphsCryptoItems } from '../../actions/graphActions';
 import { ModalWindowWallet } from '../ModalWindowWallet/modalWindowWallet';
 
 import './selectedCryptoCard.scss';
@@ -22,8 +22,11 @@ type TSelectedCryptoCardProps = {
 
 const SelectedCryptoCard: FC<TSelectedCryptoCardProps> = (props) => {
 
-  const selectedCrypto = useSelector((state: IStoreCard) => state.card.selectedCrypto);
-  console.log(selectedCrypto);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getGraphsCryptoItems(props.id, dispatch);
+  }, [props.id, dispatch]);
 
   return (
     <>

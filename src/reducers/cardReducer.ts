@@ -3,6 +3,7 @@ import { ISelectedCrypto } from "../types/interfaces";
 
 const initialState: ISelectedCrypto = {
   selectedCrypto: [],
+  getGraphsItems: [],
 };
 
 type TCardReducer = (state: ISelectedCrypto, action: TCryptoActions) => ISelectedCrypto;
@@ -15,6 +16,13 @@ const cardReducer: TCardReducer = (state = initialState, action) => {
       return {
         ...state,
         selectedCrypto: action.payload
+      }
+    }
+
+    case actionTypes.GET_GRAPHS_ITEMS: {
+      return {
+        ...state,
+        getGraphsItems: action.payload
       }
     }
 

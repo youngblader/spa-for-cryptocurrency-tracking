@@ -1,15 +1,14 @@
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { Header, SelectedCryptoCard, ModalInputCrypto } from '../../components';
+import { Header, SelectedCryptoCard, ModalInputCrypto, BarChart } from '../../components';
 import { IStoreCard } from '../../types/interfaces';
 
 import './currentCryptoPage.scss';
 
 const CurrentCryptoPage: FC = () => {
-
+  
   const selectedCrypto = useSelector((state: IStoreCard) => state.card.selectedCrypto);
-  console.log(selectedCrypto);
 
   return (
     <div className="crypto__page">
@@ -32,11 +31,12 @@ const CurrentCryptoPage: FC = () => {
                 volume={item.volumeUsd24Hr}
                 vwap={item.vwap24Hr}
               />
-              <ModalInputCrypto item={item} name={item.name} symbol={item.symbol} price={item.priceUsd}/>
+              <ModalInputCrypto item={item} name={item.name} symbol={item.symbol} price={item.priceUsd}/>           
             </div>
           )
         })}
-        {selectedCrypto.length === 0 ? <Redirect to="/"/> : null}
+        <BarChart />
+        {selectedCrypto.length === 0 ? <Redirect to="/"/> : null}     
       </div>
     </div>
   )
