@@ -20,7 +20,7 @@ const Header: FC = () => {
   const calcPercents = useCallback(() => {
     if(wallet.length !== 0) {
       const prevAmount: number = wallet.map(item => item.total).reduce((prev) => prev);
-      const nextAmount : number = wallet.map(item => item.total).reduce((prev, next) => prev + next);
+      const nextAmount: number = wallet.map(item => item.total).reduce((prev, next) => prev + next);
       setWalletAmountPercent(((nextAmount - prevAmount) / nextAmount) * 100);
       setWalletAmount(prevAmount);
     }
