@@ -33,6 +33,8 @@ export type TGetGraphItems = {
   payload: [],
 }
 
+
+
 export type TTopCryptos = ItemsCrypto;
 export type TSummaWallet = ItemsWallet;
 
