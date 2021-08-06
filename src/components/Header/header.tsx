@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../routes/routes';
@@ -9,35 +9,26 @@ import './header.scss';
 
 const Header: FC = () => {
 
-  const crypto:Array<TTopCryptos> = useSelector((state: IStore) => state.main.crypto);
-  const wallet:Array<TSummaWallet> = useSelector((state: IStoreWallet) => state.current.wallet);
+  const crypto: Array<TTopCryptos> = useSelector((state: IStore) => state.main.crypto);
+  const wallet: Array<TSummaWallet> = useSelector((state: IStoreWallet) => state.current.wallet);
 
   const [walletAmount, setWalletAmount] = useState<number>(0);
-  const [walletAmountPercent, setWalletAmountPercent] = useState<number>(0); // ((b - a) / a) * 100
-  const prevCount: number = usePrevious<number>(walletAmount);
+  const [walletAmountPercent, setWalletAmountPercent] = useState<number>(0);
 
   const topCryptos = crypto.filter((item): item is ItemsCrypto => parseInt(item.rank) <= 3);
 
-  const assessmentWallet = useCallback(() => {
+  const calcPercents = useCallback(() => {
     if(wallet.length !== 0) {
-      const b = wallet.map(item => item.total).reduce((prev, next) => prev + next);
-      setWalletAmount(b);
-    }  
+      const prevAmount: number = wallet.map(item => item.total).reduce((prev) => prev);
+      const nextAmount : number = wallet.map(item => item.total).reduce((prev, next) => prev + next);
+      setWalletAmountPercent(((nextAmount - prevAmount) / nextAmount) * 100);
+      setWalletAmount(prevAmount);
+    }
   }, [wallet]);
 
-  function usePrevious<T>(value: T): T {
-    const ref: any = useRef<T>();
-    
-    useEffect(() => {
-      ref.current = value;
-      setWalletAmountPercent(((walletAmount - prevCount) / prevCount) * 100);
-    }, [value]);
-    return ref.current;
-  }
-
   useEffect(() => {
-    assessmentWallet();
-  }, [assessmentWallet]);
+    calcPercents();
+  }, [calcPercents]);
   
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
