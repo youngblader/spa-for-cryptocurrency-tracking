@@ -23,11 +23,15 @@ const ModalInputCrypto: FC<TModalInputCryptoProps> = (props) => {
   }
 
   const addCryptoCurrency = (item: []) => {
-    dispatch({
-      type: actionTypes.ADD_CRYPTO_TO_WALLET,
-      payload: [...wallet, {...item, quantity: quantityCrypto, total: parseFloat(props.price) * parseFloat(quantityCrypto)}]
-    });
-    localStorage.setItem('cryptoCurrency', JSON.stringify([...wallet, item]));
+    if(quantityCrypto === '') {
+      alert('You have not entered the desired amount.');
+    } else {
+      dispatch({
+        type: actionTypes.ADD_CRYPTO_TO_WALLET,
+        payload: [...wallet, {...item, quantity: quantityCrypto, total: parseFloat(props.price) * parseFloat(quantityCrypto)}]
+      });
+      localStorage.setItem('cryptoCurrency', JSON.stringify([...wallet, item]));
+    }
   }
 
   return (
