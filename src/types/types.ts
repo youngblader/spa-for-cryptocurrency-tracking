@@ -8,6 +8,30 @@ export enum actionTypes {
   GET_GRAPHS_ITEMS = 'GET_GRAPHS_ITEMS',
 }
 
+export type TCurrentCryptoPageItem = {
+  id: string; 
+  item: object; 
+  name: string; 
+  marketCapUsd: string; 
+  changePercent24Hr: string; 
+  priceUsd: string; 
+  maxSupply: string; 
+  supply: string; 
+  rank: string; 
+  symbol: string; 
+  volumeUsd24Hr: string; 
+  vwap24Hr: string;
+}
+
+export type TModalWindowWallet = {
+  id: string; 
+  item: object; 
+  name: string; 
+  priceUsd: string; 
+  quantity: string; 
+  symbol: string; 
+}
+
 export type TGetCryptoAction = {
   type: actionTypes.GET_CRYPTO,
   payload: [],
@@ -32,8 +56,6 @@ export type TGetGraphItems = {
   type: actionTypes.GET_GRAPHS_ITEMS,
   payload: [],
 }
-
-
 
 export type TTopCryptos = ItemsCrypto;
 export type TSummaWallet = ItemsWallet;
