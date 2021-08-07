@@ -11,7 +11,7 @@ const ModalWindowWallet: FC = () => {
 
   useEffect(() => {
     const cryptoCurrency: string | null = localStorage.getItem('cryptoCurrency');
-    console.log(typeof cryptoCurrency);
+    
     if(cryptoCurrency !== null) {
       const parseCryptoCurrency = JSON.parse(cryptoCurrency);
       if(parseCryptoCurrency?.length) {
