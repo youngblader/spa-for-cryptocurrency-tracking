@@ -27,14 +27,12 @@ export interface ItemsCrypto {
   id: string, 
   name: string,
   priceUsd: string,
-  rank: 'rank',
+  rank: string,
   date: string,
   getGraphsItems: string | number;
 }
 
 export interface ItemsWallet {
-  prev: string, 
-  cur: string,
   priceUsd: string,
   quantity: string,
   total: number,

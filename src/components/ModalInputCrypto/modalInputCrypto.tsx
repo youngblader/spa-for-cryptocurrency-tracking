@@ -6,7 +6,7 @@ import { actionTypes } from '../../types/types';
 import './modalInputCrypto.scss';
 
 type TModalInputCryptoProps = {
-  item: any,
+  item: object,
   name: string,
   symbol: string,
   price: string,
@@ -22,7 +22,7 @@ const ModalInputCrypto: FC<TModalInputCryptoProps> = (props) => {
     setQuantityCrypto(event.target.value);
   }
 
-  const addCryptoCurrency = (item: []) => {
+  const addCryptoCurrency = (item: object) => {
     if(quantityCrypto === '') {
       alert('You have not entered the desired amount.');
     } else {

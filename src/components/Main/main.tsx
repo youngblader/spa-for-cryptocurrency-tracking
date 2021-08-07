@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { getCrypto } from '../../actions/mainActions';
 import { Card, Pagination, ModalWindowWallet } from '../../components';
 import { IStore } from '../../types/interfaces';
+import { TCurrentCryptoPageItem } from '../../types/types';
 
 import './main.scss';
 
@@ -29,7 +30,7 @@ const Main: FC = () => {
 
   return (
     <div className="container">
-      {currentCryptoPage.map((item: { id: string; name: string; marketCapUsd: string; changePercent24Hr: string; priceUsd: string; })  => {
+      {currentCryptoPage.map((item: TCurrentCryptoPageItem)  => {
         return (
           <Link
             key={item.id}

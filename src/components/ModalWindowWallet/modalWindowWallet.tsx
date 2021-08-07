@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IStoreWallet } from '../../types/interfaces';
 import { WalletCard } from '../../components';
-import { actionTypes } from '../../types/types';
+import { actionTypes, TModalWindowWallet } from '../../types/types';
 
 const ModalWindowWallet: FC = () => {
   
@@ -10,9 +10,9 @@ const ModalWindowWallet: FC = () => {
   const wallet = useSelector((state: IStoreWallet) => state.current.wallet);
 
   useEffect(() => {
-    const cryptoCurrency: any = localStorage.getItem('cryptoCurrency');
-
-    if(cryptoCurrency !== []) {
+    const cryptoCurrency: string | null = localStorage.getItem('cryptoCurrency');
+    console.log(typeof cryptoCurrency);
+    if(cryptoCurrency !== null) {
       const parseCryptoCurrency = JSON.parse(cryptoCurrency);
       if(parseCryptoCurrency?.length) {
         
@@ -22,7 +22,6 @@ const ModalWindowWallet: FC = () => {
         });
       }
     }
-    
   }, [dispatch]);
 
   useEffect(() => {
@@ -41,7 +40,7 @@ const ModalWindowWallet: FC = () => {
               <div className="modal-body">
                 {wallet?.length ? (
                   <>
-                    {wallet.map((item: { id: string; item: any; name: string; priceUsd: string; quantity: string; symbol: string; }, index) => {
+                    {wallet.map((item: TModalWindowWallet, index: number) => {
                       return (
                         <div key={item.id} className="card w-100"> 
                           <WalletCard

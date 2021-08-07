@@ -6,7 +6,7 @@ import { ModalWindowWallet } from '../ModalWindowWallet/modalWindowWallet';
 import './selectedCryptoCard.scss';
 
 type TSelectedCryptoCardProps = {
-  item: any,
+  item: object,
   id: string,
   name: string,
   marketCapUsd: string,

@@ -11,7 +11,7 @@ type TPaginationProps = {
 
 const Pagination: FC<TPaginationProps> = ({ totalCryptoItems, amountCrypto, pagination }) => {
 
-  const pageNumbers:number[] = [];
+  const pageNumbers: number[] = [];
 
   for (let i = 1; i < (totalCryptoItems / amountCrypto); i++) {
     pageNumbers.push(i);

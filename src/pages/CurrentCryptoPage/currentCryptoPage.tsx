@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Header, SelectedCryptoCard, ModalInputCrypto, BarChart } from '../../components';
 import { IStoreCard } from '../../types/interfaces';
+import { TCurrentCryptoPageItem } from '../../types/types';
 
 import './currentCryptoPage.scss';
 
@@ -14,7 +15,7 @@ const CurrentCryptoPage: FC = () => {
     <div className="crypto__page">
       <Header/>
       <div className="crypto__page-content">
-        {selectedCrypto.map((item: { id: string; item: any; name: string; marketCapUsd: string; changePercent24Hr: string; priceUsd: string; maxSupply: string; supply: string; rank: string; symbol: string; volumeUsd24Hr: string; vwap24Hr: string; })  => {
+        {selectedCrypto.map((item: TCurrentCryptoPageItem)  => {
           return ( 
             <div key={item.id}>
               <SelectedCryptoCard

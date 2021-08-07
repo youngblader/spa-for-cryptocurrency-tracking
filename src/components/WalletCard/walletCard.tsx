@@ -8,7 +8,7 @@ import './walletCard.scss';
 type TWalletCardProps = {
   index: number,
   id: string,
-  item: any,
+  item: object,
   name: string,
   price: string,
   quantity: string,
