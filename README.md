@@ -21,7 +21,7 @@ Then start the spa-for-cryptocurrency-tracking development server
 cd spa-for-cryptocurrency-tracking / && npm start
 ```
 
-## Build with
+## Built with
  
 * [React.js](https://ru.reactjs.org/)
 * [Redux.js](https://redux.js.org/)
